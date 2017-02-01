@@ -1,5 +1,5 @@
 # lara-jms
-Simple CSM with Laravel5.2.* and MySQL
+Simple jokes CSM with Laravel5.2.* and MySQL
 
 ## License
 
