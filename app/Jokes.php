@@ -16,6 +16,9 @@ class Jokes extends Model
 
     ];
 
+    // treat timestamp as Carbon instance
+    protected $dates = ['jokedate'];
+
     public function scopePublished($query)
     {
         $query->where('jokedate', '<=', Carbon::now());
@@ -27,7 +30,7 @@ class Jokes extends Model
         $query->where('jokedate', '>=', Carbon::now());
     }
 
-    public function setPublishedAtAttribute($date)
+    public function setJokedateAttribute($date)
     {
         $this->attributes['jokedate'] = Carbon::parse($date);
     }

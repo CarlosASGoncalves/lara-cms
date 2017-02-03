@@ -3,49 +3,61 @@
 namespace App\Http\Controllers;
 
 use App\Authors;
-use App\Http\Requests;
+use App\Http\Requests\CreateAuthorRequest;
 use App\Http\Controllers\Controller;
-use Request;
+
 
 
 class AuthorsController extends Controller
 {
     public function index(){
 
-       $authors = Authors::latest('created_at')->get();
+       $authors = Authors::all();
 
        return view('manage.authors.index', ['authors' => $authors]);
 
     }
 
-    public function add(){
+    public function create(){
 
-        return view('manage.authors.form');
+        return view('manage.authors.create');
 
     }
 
-    public function store(){
+    public function store(CreateAuthorRequest $request){
 
-        Authors::create(Request::all());
+        Authors::create($request->all());
 
         return redirect('authors');
 
     }
 
-    public function edit(){
+    public function edit($id){
 
-        dd('ups3');//do something
+        $author = Authors::findOrFail($id);
 
-        return view('manage.authors.index');
+        return view('manage.authors.edit', compact('author'));
+
+    }
+
+    public function update($id, CreateAuthorRequest $request)
+    {
+        $authors = Authors::findOrFail($id);
+
+        $authors->update($request->all());
+
+        return redirect('authors');
+    }
+
+    public function destroy($id){
+
+        Authors::findOrFail($id)->delete();
+
+        return redirect('authors');
 
     }
 
-    public function delete(){
+    public function show(){}
 
-        dd('ups4');//do something
-
-        return view('manage.authors.index');
-
-    }
 
 }

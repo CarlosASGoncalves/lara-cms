@@ -9,9 +9,9 @@
 
                 <div class="panel-body">
                     <ul>
-                        <li><a href="jokes/">Manage Jokes</a></li>
-                        <li><a href="authors/">Manage Authors</a></li>
-                        <li><a href="categories/">Manage Joke Categories</a></li>
+                        <li><a href="{{url('jokes')}}">Manage Jokes</a></li>
+                        <li><a href="{{url('authors')}}">Manage Authors</a></li>
+                        <li><a href="{{url('categories')}}">Manage Joke Categories</a></li>
                     </ul>
                 </div>
             </div>

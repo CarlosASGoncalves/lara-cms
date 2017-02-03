@@ -8,24 +8,23 @@
 
             <h1>Manage Authors</h1>
 
-            <p><a href="{{ url('authors/add') }}">Add new author</a></p>
+            <p><a href="{{ url('authors/create') }}">Create new Author</a></p>
 
             <ul class="list-group">
 
                 @foreach ($authors as $author)
 
-                    <li class="list-group-item">
+                    <li class="list-group-item clearfix">
 
-                        {{ Form::open() }}
+                        {{ Form::open(['method' => 'DELETE', 'url' => '/authors/' .$author->id]) }}
 
                         {{ Form::label('name', $author->name, ['class' => 'label label-default']) }}
 
-                        {{ Form::hidden('id', $author->id) }}
-
                         <span class="pull-right">
-                            {{ Form::submit('Edit', ['class' => 'btn']) }}
-                            {{ Form::submit('Delete', ['class' => 'btn']) }}
+                            <a href="{{ url('/authors/' .$author->id. '/edit') }}" class="btn">Edit</a>
+                            {{ Form::submit('Delete', ['class' => "btn btn-danger"]) }}
                         </span>
+
                         {{ Form::close() }}
 
                     </li>
@@ -34,18 +33,10 @@
 
             </ul>
 
-            <p><a href="{{ url('/home') }}">Return to JokesMS home</a></p>
+            <p><a href="{{ url('/home') }}">Return</a></p>
 
         </div>
 
     </div>
-
-    {{--{{$author->name}}--}}
-    {{--<input type="text" class="form-control">--}}
-    {{--<span class="input-group-btn">--}}
-    {{--<button class="btn btn-default" type="button">Go!</button>--}}
-    {{--</span>--}}
-    {{--</div>--}}
-
 
 @stop

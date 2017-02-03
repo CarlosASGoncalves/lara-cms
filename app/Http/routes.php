@@ -16,9 +16,5 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/about', 'AboutController@index');
 
-Route::get('/authors', 'AuthorsController@index');
-Route::get('/authors/add', 'AuthorsController@add');
-Route::post('/authors', 'AuthorsController@store');
-//Route::post('/authors', 'AuthorsController@edit');
-//Route::post('/authors', 'AuthorsController@delete');
-
+Route::resource('authors', 'AuthorsController');
+Route::resource('jokes', 'JokesController');
