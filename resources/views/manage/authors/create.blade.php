@@ -6,7 +6,7 @@
 
         <div class="col-md-6 col-md-offset-3">
 
-            <h1>Create New Author</h1>
+            <h1 class="text-center">Create New Author</h1>
 
             {!! Form::open(['url' => '/authors']) !!}
 

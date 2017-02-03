@@ -26,20 +26,6 @@ class JokesController extends Controller
 
     }
 
-    public function create(){
-
-        return view('manage.jokes.create');
-
-    }
-
-    public function store(CreateJokesRequest $request){
-
-       Jokes::create($request->all());
-
-        return redirect('jokes');
-
-    }
-
     public function edit($id){
 
         $joke = Jokes::findOrFail($id);
@@ -64,5 +50,10 @@ class JokesController extends Controller
         return redirect('jokes');
 
     }
+
+    public function create(){}
+
+    public function store(){}
+
 
 }

@@ -12,9 +12,9 @@
 */
 Route::auth();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'PagesController@index');
+
 Route::get('/home', 'HomeController@index');
-Route::get('/about', 'AboutController@index');
 
 Route::resource('authors', 'AuthorsController');
 Route::resource('jokes', 'JokesController');

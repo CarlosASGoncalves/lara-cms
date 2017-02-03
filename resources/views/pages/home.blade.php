@@ -4,14 +4,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Joke Management System</div>
+            <div class="panel panel-default text-center">
+                <div class="panel-heading"><h4>Jokes Management System</h4></div>
 
                 <div class="panel-body">
-                    <ul>
-                        <li><a href="{{url('jokes')}}">Manage Jokes</a></li>
-                        <li><a href="{{url('authors')}}">Manage Authors</a></li>
-                        <li><a href="{{url('categories')}}">Manage Joke Categories</a></li>
+                    <ul class="list-group">
+                        <li class="list-group-item clearfix"><a href="{{url('jokes')}}">Manage Jokes</a></li>
+                        <li class="list-group-item clearfix"><a href="{{url('authors')}}">Manage Authors</a></li>
+                        <li class="list-group-item clearfix"><a href="{{url('categories')}}">Manage Joke Categories</a></li>
                     </ul>
                 </div>
             </div>

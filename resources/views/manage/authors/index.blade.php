@@ -6,7 +6,7 @@
 
         <div class="col-md-6 col-md-offset-3">
 
-            <h1>Manage Authors</h1>
+            <h1 class="text-center">Manage Authors</h1>
 
             <p><a href="{{ url('authors/create') }}">Create new Author</a></p>
 
