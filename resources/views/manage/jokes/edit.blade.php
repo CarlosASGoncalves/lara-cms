@@ -6,7 +6,7 @@
 
         <div class="col-md-6 col-md-offset-3">
 
-            <h1>Edit Joke</h1>
+            <h1 class="text-center">Edit Joke</h1>
 
             {!! Form::model($joke, ['method' => 'PATCH', 'url' => 'jokes/' .$joke->id]) !!}
 
