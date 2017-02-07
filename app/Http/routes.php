@@ -13,8 +13,10 @@
 Route::auth();
 
 Route::get('/', 'PagesController@index');
+Route::get('/search', 'PagesController@search');
 
 Route::get('/home', 'HomeController@index');
 
 Route::resource('authors', 'AuthorsController');
 Route::resource('jokes', 'JokesController');
+Route::resource('categories', 'CategoriesController');

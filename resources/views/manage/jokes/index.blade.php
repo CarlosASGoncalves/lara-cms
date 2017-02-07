@@ -2,51 +2,59 @@
 
 @section('content')
 
+<div class="row">
 
+    <div class="col-md-6 col-md-offset-3">
 
-        <div class="row">
+        <h1 class="text-center">Manage Jokes</h1>
 
-            <div class="col-md-6 col-md-offset-3">
+            <p><a href="{{ url('jokes/create') }}">Create new Joke</a></p>
 
-                <h1 class="text-center">Manage Jokes</h1>
+                <div class="list-group">
 
-                    <div class="list-group">
+                    @foreach ($jokes as $joke)
 
-                        @foreach ($jokes as $joke)
+                        <li class="list-group-item clearfix">
 
-                            <li class="list-group-item clearfix">
+                            {{ Form::open(['method' => 'DELETE', 'url' => '/jokes/' .$joke->id]) }}
 
-                                {{ Form::open(['method' => 'DELETE', 'url' => '/jokes/' .$joke->id]) }}
+                                {{ Form::textarea('name', $joke->joketext, [
+                                    'class' => 'label label-default',
+                                    'rows' => '3',
+                                    'cols' => '80',
+                                ]) }}
 
-                                        {{ Form::textarea('name', $joke->joketext, [
-                                            'class' => 'label label-default',
-                                            'rows' => '3',
-                                            'cols' => '80',
-                                        ]) }}
+                                <br>
 
-                                        <br>
+                                {!! Form::label('name', 'Published: By ' .$joke->author->name) !!} <!-- todo: rewrite all models in Singular -->
 
-                                        {!! Form::label('jokedate', 'Publish On:' .$joke->jokedate) !!}
+                                {!! Form::label('jokedate', ' | On ' .$joke->jokedate) !!}
 
-                                    <span class="pull-right">
+                                @if ($joke->categories->count() > 0)
 
-                                        <a href="{{ url('/jokes/' .$joke->id. '/edit') }}" class="btn">Edit</a>
-                                        {{ Form::submit('Delete', ['class' => "btn btn-danger"]) }}
+                                {!! Form::label('name', ' | Categorie:' .$joke->categories()->first()->name) !!}
 
-                                    </span>
+                                @endif
 
-                                {{ Form::close() }}
+                                <span class="pull-right">
 
-                            </li>
+                                    <a href="{{ url('/jokes/' .$joke->id. '/edit') }}" class="btn">Edit</a>
+                                    {{ Form::submit('Delete', ['class' => "btn btn-danger"]) }}
 
-                        @endforeach
+                                </span>
 
-                    </div>
+                            {{ Form::close() }}
 
-                <p><a href="{{ url('/home') }}">Return</a></p>
+                        </li>
 
-            </div>
+                    @endforeach
 
-        </div>
+                </div>
+
+        <p><a href="{{ url('/home') }}">Return</a></p>
+
+    </div>
+
+</div>
 
 @stop

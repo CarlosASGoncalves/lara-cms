@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
-    protected $toTruncate = ['users', 'jokes', 'categories', 'authors'];
+    protected $toTruncate = ['users', 'authors', 'jokes', 'categories']; //'category_joke'
 
     /**
      * Run the database seeds.
@@ -24,13 +24,15 @@ class DatabaseSeeder extends Seeder
 
         }
 
-//        $this->call(UsersTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
 
         $this->call(AuthorsTableSeeder::class);
 
         $this->call(JokesTableSeeder::class);
 
         $this->call(CategoriesTableSeeder::class);
+
+//        $this->call(CategoryJokeTableSeerder::class);
 
     }
 }
