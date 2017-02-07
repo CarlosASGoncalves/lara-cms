@@ -15,6 +15,7 @@ class CreateAuthorsTable extends Migration
         if (!Schema::hasTable('authors')) {
 
             Schema::create('authors', function (Blueprint $table) {
+                $table->engine = 'InnoDB';
                 $table->increments('id');
                 $table->string('name');
                 $table->string('email')->unique();
@@ -22,7 +23,6 @@ class CreateAuthorsTable extends Migration
             });
 
         }
-
     }
 
     /**

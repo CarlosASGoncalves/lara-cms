@@ -11,6 +11,8 @@
 |
 */
 
+
+
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
 
@@ -54,3 +56,15 @@ $factory->define(App\Authors::class, function (Faker\Generator $faker) {
 
     ];
 });
+
+//$factory->define(App\CategoryJoke::class, function (Faker\Generator $faker) {
+//
+//    return[
+//
+//        'category_id' => random_int(1,5),
+//
+//        'joke_id' => random_int(1,5)
+//
+//    ];
+//
+//});

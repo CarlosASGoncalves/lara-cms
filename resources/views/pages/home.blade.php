@@ -11,7 +11,7 @@
                     <ul class="list-group">
                         <li class="list-group-item clearfix"><a href="{{url('jokes')}}">Manage Jokes</a></li>
                         <li class="list-group-item clearfix"><a href="{{url('authors')}}">Manage Authors</a></li>
-                        <li class="list-group-item clearfix"><a href="{{url('categories')}}">Manage Joke Categories</a></li>
+                        <li class="list-group-item clearfix"><a href="{{url('categories')}}">Manage Categories</a></li>
                     </ul>
                 </div>
             </div>

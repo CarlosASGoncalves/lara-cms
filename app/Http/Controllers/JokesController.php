@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Authors;
+use App\Categories;
 use App\Jokes;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -10,11 +12,30 @@ use App\Http\Requests\CreateJokesRequest;
 
 class JokesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
 
         $jokes = Jokes::latest('jokedate')->published()->get();
 
         return view('manage.jokes.index', ['jokes' => $jokes]);
+
+    }
+
+    public function create(){
+
+        $categories = Categories::all();
+
+        return view('manage.jokes.create', ['categories' => $categories]);
+
+    }
+
+    public function store(CreateJokesRequest $request){
+
+        return redirect('jokes');
 
     }
 
@@ -50,10 +71,5 @@ class JokesController extends Controller
         return redirect('jokes');
 
     }
-
-    public function create(){}
-
-    public function store(){}
-
 
 }

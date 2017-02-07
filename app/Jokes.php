@@ -16,7 +16,7 @@ class Jokes extends Model
 
     ];
 
-    // treat timestamp as Carbon instance
+//     treat timestamp as Carbon instance
     protected $dates = ['jokedate'];
 
     public function scopePublished($query)
@@ -35,15 +35,16 @@ class Jokes extends Model
         $this->attributes['jokedate'] = Carbon::parse($date);
     }
 
+    public function categories()
+    {
+        return $this->belongsToMany('App\Categories', 'category_joke', 'category_id', 'joke_id');
+    }
 
-    public function authors()
+
+    public function author()
     {
         return $this->belongsTo('App\Authors');
     }
 
-    public function categories()
-    {
-        return $this->belongsToMany('App\Categories', 'category_joke', 'joke_id', 'category_id');
-    }
 
 }
