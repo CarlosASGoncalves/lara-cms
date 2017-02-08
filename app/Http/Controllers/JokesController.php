@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Authors;
 use App\Categories;
+use App\CategoryJoke;
 use App\Jokes;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -29,11 +30,20 @@ class JokesController extends Controller
 
         $categories = Categories::all();
 
-        return view('manage.jokes.create', ['categories' => $categories]);
+        $authors = Authors::all();
+
+        return view('manage.jokes.create', ['categories' => $categories, 'authors' => $authors]);
 
     }
 
     public function store(CreateJokesRequest $request){
+
+//        dd($request->author_id);
+//        exit;
+
+        $new_joke = Jokes::create(['joketext' => $request->joketext, 'jokedate' => $request->jokedate, 'author_id' => $request->author_id]);
+
+        CategoryJoke::create(['category_id' => $request->input('category_id'), 'joke_id' => $new_joke->id])->push(); //use better way to get id from Jokes
 
         return redirect('jokes');
 

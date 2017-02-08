@@ -8,7 +8,7 @@
 
         <h1 class="text-center">Manage Jokes</h1>
 
-            <p><a href="{{ url('jokes/create') }}">Create new Joke</a></p>
+        <p><a href="{{ url('jokes/create') }}">Create new Joke</a></p>
 
                 <div class="list-group">
 
@@ -19,9 +19,11 @@
                             {{ Form::open(['method' => 'DELETE', 'url' => '/jokes/' .$joke->id]) }}
 
                                 {{ Form::textarea('name', $joke->joketext, [
-                                    'class' => 'label label-default',
-                                    'rows' => '3',
-                                    'cols' => '80',
+
+                                        'class' => 'label label-default',
+                                        'rows' => '3',
+                                        'cols' => '80',
+
                                 ]) }}
 
                                 <br>

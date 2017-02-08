@@ -12,6 +12,7 @@ class CreateCategoryJokeTable extends Migration
      */
     public function up()
     {
+
         if (!Schema::hasTable('category_joke')) {
 
             Schema::create('category_joke', function (Blueprint $table) {
@@ -34,7 +35,9 @@ class CreateCategoryJokeTable extends Migration
 
                 $table->timestamps();
             });
+
         }
+
     }
 
     /**

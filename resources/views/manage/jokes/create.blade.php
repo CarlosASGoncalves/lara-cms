@@ -10,7 +10,7 @@
 
             {!! Form::open(['url' => '/jokes']) !!}
 
-            @include('manage.jokes.form', ['submitButtonText' => 'Create Joke'])
+            @include('manage.jokes.form', ['submitButtonText' => 'Create Joke', 'categories' => $categories, 'authors' => $authors])
 
             {!! Form::close() !!}
 
