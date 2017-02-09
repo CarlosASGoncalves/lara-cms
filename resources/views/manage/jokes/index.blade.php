@@ -8,7 +8,7 @@
 
         <h1 class="text-center">Manage Jokes</h1>
 
-            <p><a href="{{ url('jokes/create') }}">Create new Joke</a></p>
+        <p><a href="{{ url('jokes/create') }}">Create new Joke</a></p>
 
                 <div class="list-group">
 
@@ -19,22 +19,20 @@
                             {{ Form::open(['method' => 'DELETE', 'url' => '/jokes/' .$joke->id]) }}
 
                                 {{ Form::textarea('name', $joke->joketext, [
-                                    'class' => 'label label-default',
-                                    'rows' => '3',
-                                    'cols' => '80',
+
+                                        'class' => 'label label-default',
+                                        'rows' => '3',
+                                        'cols' => '90',
+
                                 ]) }}
 
                                 <br>
 
-                                {!! Form::label('name', 'Published: By ' .$joke->author->name) !!} <!-- todo: rewrite all models in Singular -->
+                                {!! Form::label('name', 'Published: By: ' .$joke->author->name) !!} <!-- todo: rewrite all models in Singular -->
 
-                                {!! Form::label('jokedate', ' | On ' .$joke->jokedate) !!}
+                                {!! Form::label('jokedate', ' | On: ' .$joke->jokedate) !!}
 
-                                @if ($joke->categories->count() > 0)
-
-                                {!! Form::label('name', ' | Categorie:' .$joke->categories()->first()->name) !!}
-
-                                @endif
+                                {!! Form::label('name', ' | Category: ' .$joke->categories()->getRelated()->first()->name) !!}
 
                                 <span class="pull-right">
 

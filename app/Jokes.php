@@ -46,5 +46,10 @@ class Jokes extends Model
         return $this->belongsTo('App\Authors');
     }
 
+    public function getNameAttribute()
+    {
+        return $this->categories->lists('name');
+    }
+
 
 }
