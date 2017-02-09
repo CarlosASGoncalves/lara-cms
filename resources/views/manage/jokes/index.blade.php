@@ -22,21 +22,17 @@
 
                                         'class' => 'label label-default',
                                         'rows' => '3',
-                                        'cols' => '80',
+                                        'cols' => '90',
 
                                 ]) }}
 
                                 <br>
 
-                                {!! Form::label('name', 'Published: By ' .$joke->author->name) !!} <!-- todo: rewrite all models in Singular -->
+                                {!! Form::label('name', 'Published: By: ' .$joke->author->name) !!} <!-- todo: rewrite all models in Singular -->
 
-                                {!! Form::label('jokedate', ' | On ' .$joke->jokedate) !!}
+                                {!! Form::label('jokedate', ' | On: ' .$joke->jokedate) !!}
 
-                                @if ($joke->categories->count() > 0)
-
-                                {!! Form::label('name', ' | Categorie:' .$joke->categories()->first()->name) !!}
-
-                                @endif
+                                {!! Form::label('name', ' | Category: ' .$joke->categories()->getRelated()->first()->name) !!}
 
                                 <span class="pull-right">
 
